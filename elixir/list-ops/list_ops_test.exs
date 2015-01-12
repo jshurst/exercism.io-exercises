@@ -111,12 +111,10 @@ defmodule ListOpsTest do
   end
 
   test "concat of huge list of small lists" do
-    assert L.concat(Enum.map(1..1_000_000, &[&1])) ==
-      Enum.to_list(1..1_000_000)
+    assert L.concat(Enum.map(1..1_000_000, &[&1])) == Enum.to_list(1..1_000_000)
   end
 
   test "concat of small list of huge lists" do
-    assert L.concat(Enum.map(0..9, &Enum.to_list((&1*100_000+1)..((&1+1)*100_000)))) ==
-      Enum.to_list(1..1_000_000)
+    assert L.concat(Enum.map(0..9, &Enum.to_list((&1*100_000+1)..((&1+1)*100_000)))) == Enum.to_list(1..1_000_000)
   end
 end
