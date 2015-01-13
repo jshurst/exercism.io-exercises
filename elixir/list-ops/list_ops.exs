@@ -92,7 +92,7 @@ defmodule ListOps do
   @spec concat([[any]]) :: [any]
   def concat(ll) do		
 	case {ll} do		
-		{[h|t]} -> reverse(h) |> concat_p(t)
+		{[h|t]} -> h |> reverse |> concat_p(t)
 		_ -> []
 	end
   end
